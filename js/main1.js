@@ -67,7 +67,7 @@ var cuchara = Bodies.circle(-300,-300,100,
             // fillStyle: 'transparent'
           }}
 );
-//cuchara.collisionFilter = 1;
+
 // var cuchara = Bodies.ctx.arc(100, 100,20, 0, 2*Math.PI, false,
 //       {
 //
@@ -96,7 +96,7 @@ engine.world.gravity.y = 0;
 draw();
 
 function draw(){
-
+  Runner.tick(runner, engine, 1000/60);
 
   Body.setPosition(cuchara, {
       x: -300,
@@ -126,7 +126,7 @@ function draw(){
       }
     }
   );*/
-  //newBox.collisionFilter = -1;
+  newBox.collisionFilter = -1;
   shapes.push(newBox);
   World.add(engine.world, shapes);
   }
@@ -145,6 +145,6 @@ function draw(){
       shapes.splice(i,1);
     }
   }
-  Runner.tick(runner, engine, 1000/60);
+  Engine.update(engine);
   requestAnimationFrame(draw);
 }

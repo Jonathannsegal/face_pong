@@ -119,7 +119,7 @@ var user = Bodies.circle(900,300,40,{
 );
 
 // ctx.arc(dets[i][1], dets[i][0], dets[i][2]/2, 0, 2*Math.PI, false);
-var cuchara = Bodies.circle(300,300,100,
+var cuchara = Bodies.circle(300,300,80,
       {
 
           render: {

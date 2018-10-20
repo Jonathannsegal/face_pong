@@ -12,7 +12,10 @@
 
 
 html, body {
-  background: #333;
+  /* background: #333; */
+  background:url(../img/wall.jpg);
+  background-repeat: repeat;
+  background-size: cover;
   font-family: Helvetica;
   overflow: hidden;
 }

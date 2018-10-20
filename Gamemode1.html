@@ -93,7 +93,7 @@
 						// Matter.Body.scale(cuchara, width: 2, height: 2);
 						// c.moveTo(part.vertices[0].x, part.vertices[0].y);
 						// document.getElementById("left").innerHTML = "X value: " + dets[i][1];
-						document.getElementById("right").innerHTML =  "Y value: " + dets[i][0];
+						// document.getElementById("right").innerHTML =  "Y value: " + dets[i][0];
 
 						ctx.lineWidth = 3;
 						ctx.strokeStyle = 'red';
@@ -113,10 +113,10 @@
 	<body onload="button_callback()">
 		<!-- <div class="testBoundingBox" id="testBoundingBox"></div> -->
 		<!-- <p><center><input type="button" value="Start real-time face detection" onclick="button_callback()"></center></p> -->
-		<h1 data-heading="Score 1" contenteditable>Score 1</h1>
-		<div class="info"><span id="score" class="score">Score: 0</span><span id="right" class="right">YYYYY</span></div>
+		<!-- <div class="info"><span id="score" class="score">Score: 0</span><span id="right" class="right">YYYYY</span></div> -->
 		<!-- <div class="info"><span id="score" class="score">Score: 0</span></div> -->
 		<canvas width=640 height=480></canvas>
+		<h1 data-heading="Score 1" contenteditable id="score">Score 0</h1>
 		<style>
 		html{
 			width: 100%;

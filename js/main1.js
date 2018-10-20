@@ -107,7 +107,7 @@ function draw(){
 
 
 
-  if(shapes.length <= 14){
+  if(shapes.length <= 4){
     var newBox = Bodies.rectangle(Common.random(220,render.canvas.width-40),0,80,80)
     /*var newBox = Bodies.rectangle(Common.random(0,1000),200,80,80,{
       friction: 0,

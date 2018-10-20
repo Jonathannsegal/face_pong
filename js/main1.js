@@ -150,7 +150,9 @@ function draw(){
       shapes.splice(i,1);
     }
     if(shapes[i].position.x < 220 || shapes[i].position.x > render.canvas.width+40){
-      score++;
+      if(shapes[i].position.y>50){
+        score++;
+      }
       document.getElementById("score").innerHTML = "Score: " + score;
       shapes[i].render.visible = false;
       World.remove(engine.world, shapes[i]);

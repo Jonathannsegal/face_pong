@@ -52,7 +52,6 @@ var render = Render.create({
 
 //create a Runner
 var runner = Runner.create();
-Runner.run(runner, engine);
 
 // create two boxes
 
@@ -76,10 +75,7 @@ Runner.run(runner, engine);
     }
   );
 
-  Body.setVelocity(boxA, {
-      x: 0,
-      y: 10
-    });
+
 
 // add all of the bodies to the world
 World.add(engine.world, boxA);
@@ -90,3 +86,16 @@ World.add(engine.world, boxA);
 
 // run the renderer
 Render.run(render);
+
+
+draw();
+
+function draw(){
+  Runner.tick(runner, engine, 1000/60);
+  Body.setVelocity(boxA, {
+      x: 0,
+      y: 10
+    });
+
+  requestAnimationFrame(draw);
+}

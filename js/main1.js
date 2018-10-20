@@ -91,35 +91,22 @@ World.add(engine.world, cuchara);
 
 // run the renderer
 Render.run(render);
-
+engine.world.gravity.y = 0;
 
 draw();
 
 function draw(){
   Runner.tick(runner, engine, 1000/60);
-  /*Body.setVelocity(boxA, {
-      x: 0,
-      y: 10
-  });
-  Body.setVelocity(boxB, {
-      x: 0,
-      y: 15
-  });*/
 
   Body.setPosition(cuchara, {
       x: -300,
       y: -300
   });
 
-  for(var i = 0; i < shapes.length; i++){
-    Body.setVelocity(shapes[i], {
-      x:0,
-      y:4
-    });
-  }
 
-  if(shapes.length <= 2){
-    var newBox = Bodies.rectangle(Common.random(168,render.canvas.width-40),0,80,80)
+
+  if(shapes.length <= 9){
+    var newBox = Bodies.rectangle(Common.random(220,render.canvas.width-40),0,80,80)
     /*var newBox = Bodies.rectangle(Common.random(0,1000),200,80,80,{
       friction: 0,
       frictionAir: 0,
@@ -139,9 +126,19 @@ function draw(){
       }
     }
   );*/
+  newBox.collisionFilter = -1;
   shapes.push(newBox);
   World.add(engine.world, shapes);
   }
+
+  for(var i = 0; i < shapes.length; i++){
+    Body.setVelocity(shapes[i], {
+      x:0,
+      y:1
+    });
+  }
+
+
   for(var i = shapes.length-1; i >= 0; i--){
     if(shapes[i].position.y > render.canvas.height){
       World.remove(engine.world, shapes[i]);

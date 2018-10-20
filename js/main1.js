@@ -2,7 +2,8 @@
 var Engine = Matter.Engine,
     Render = Matter.Render,
     World = Matter.World,
-    Bodies = Matter.Bodies;
+    Bodies = Matter.Bodies,
+    Runner = Matter.Runner;
 
 // create an engine
 var engine = Engine.create();
@@ -13,7 +14,7 @@ var render = Render.create({
     engine: engine,
     options: {
         width: screen.width,
-        height: window.innerHeight,
+        height: screen.height,
         pixelRatio: 1,
         background: 'transparent',
         wireframeBackground: '#222',
@@ -40,7 +41,10 @@ var render = Render.create({
 
 });
 
-// create two boxes and a ground
+//create a Runner
+//var runner = Runner.create();
+//Runner.run(runner, engine);
+// create two boxes
 var boxA = Bodies.rectangle(40, 200, 80, 80);
 var boxB = Bodies.rectangle(800, 50, 80, 80);
 

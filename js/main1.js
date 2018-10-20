@@ -85,7 +85,7 @@ var shapes = new Array();
 // add all of the bodies to the world
 World.add(engine.world, cuchara);
 
-
+var score = 0;
 // run the engine
 // Engine.run(engine);
 
@@ -142,12 +142,19 @@ function draw(){
 
 
   for(var i = shapes.length-1; i >= 0; i--){
-    if(shapes[i].position.y > render.canvas.height || shapes[i].position.x < 220 || shapes[i].position.x > render.canvas.width){
+    if(shapes[i].position.y > render.canvas.height){
+      shapes[i].render.visible = false;
+      World.remove(engine.world, shapes[i]);
+      shapes.splice(i,1);
+    }
+    if(shapes[i].position.x < 220 || shapes[i].position.x > render.canvas.width){
+      score++;
       shapes[i].render.visible = false;
       World.remove(engine.world, shapes[i]);
       shapes.splice(i,1);
     }
   }
+  document.getElementById("score").innerHTML = "Score: " + score;
   Engine.update(engine);
   requestAnimationFrame(draw);
 }

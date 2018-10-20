@@ -18,7 +18,7 @@ html {
     overflow: hidden;
 }
 
-html {
+/* html {
   overflow: 0;
 }
 body {
@@ -39,7 +39,7 @@ body {
   background-image: #000;
 
   /* width: 24.789vw; */
-    width: 24.75vw;
+    /* width: 24.75vw;
   height: 100vh;
 
 	border: 0 solid rgba(0, 0, 0, 0);
@@ -85,7 +85,7 @@ body {
 }
 .five{
   background-color:#5BA7C8;
-}
+}  */
 
 
 html, body {

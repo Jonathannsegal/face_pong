@@ -41,7 +41,7 @@ var render = Render.create({
         showCollisions: false,
         showSeparations: false,
         showAxes: false,
-        showPositions: true,
+        showPositions: false,
         showAngleIndicator: false,
         showIds: false,
         showShadows: false,
@@ -58,7 +58,69 @@ var runner = Runner.create();
 
 // create two boxes
 
-    var boxA = Bodies.rectangle(400,200,80,80,{
+
+// ctx.arc(dets[i][1], dets[i][0], dets[i][2]/2, 0, 2*Math.PI, false);
+var cuchara = Bodies.circle(-300,-300,100,
+      {
+
+          render: {
+            // fillStyle: 'transparent'
+          }}
+);
+
+// var cuchara = Bodies.ctx.arc(100, 100,20, 0, 2*Math.PI, false,
+//       {
+//
+//           render: {
+//             // fillStyle: 'transparent'
+//           }}
+// );
+
+var shapes = new Array();
+//shapes.push(boxA);
+//shapes.push(boxB);
+
+
+
+// add all of the bodies to the world
+World.add(engine.world, cuchara);
+
+
+// run the engine
+//Engine.run(engine);
+
+// run the renderer
+Render.run(render);
+
+
+draw();
+
+function draw(){
+  Runner.tick(runner, engine, 1000/60);
+  /*Body.setVelocity(boxA, {
+      x: 0,
+      y: 10
+  });
+  Body.setVelocity(boxB, {
+      x: 0,
+      y: 15
+  });*/
+
+  Body.setPosition(cuchara, {
+      x: -300,
+      y: -300
+  });
+
+  for(var i = 0; i < shapes.length; i++){
+    Body.setVelocity(shapes[i], {
+      x:0,
+      y:4
+    });
+  }
+
+  if(shapes.length <= 2){
+    var newBox = Bodies.rectangle(Common.random(0,render.canvas.width-40),0,80,80)
+    /*var newBox = Bodies.rectangle(Common.random(0,1000),200,80,80,{
       friction: 0,
       frictionAir: 0,
 
@@ -76,101 +138,15 @@ var runner = Runner.create();
         }
       }
     }
-  );
-
-  var boxB = Bodies.rectangle(300,200,80,80,{
-    friction: 0,
-    frictionAir: 0,
-
-    // set the body's wrapping bounds
-    plugin: {
-      wrap: {
-        min: {
-          x: 0,
-          y: 0
-        },
-        max: {
-          x: render.canvas.width,
-          y: render.canvas.height
-        }
-      }
+  );*/
+  shapes.push(newBox);
+  World.add(engine.world, shapes);
+  }
+  for(var i = shapes.length-1; i >= 0; i--){
+    if(shapes[i].position.y > render.canvas.height){
+      World.remove(engine.world, shapes[i]);
+      shapes.splice(i,1);
     }
   }
-);
-
-var user = Bodies.circle(900,300,40,{
-  friction: 0,
-  frictionAir: 0,
-
-  // set the body's wrapping bounds
-  plugin: {
-    wrap: {
-      min: {
-        x: 0,
-        y: 0
-      },
-      max: {
-        x: render.canvas.width,
-        y: render.canvas.height
-      }
-    }
-  }
-}
-);
-
-// ctx.arc(dets[i][1], dets[i][0], dets[i][2]/2, 0, 2*Math.PI, false);
-var cuchara = Bodies.circle(300,300,100,
-      {
-
-          render: {
-            // fillStyle: 'transparent'
-          }}
-);
-
-// var cuchara = Bodies.ctx.arc(100, 100,20, 0, 2*Math.PI, false,
-//       {
-//
-//           render: {
-//             // fillStyle: 'transparent'
-//           }}
-// );
-
-
-
-// add all of the bodies to the world
-World.add(engine.world, boxA);
-World.add(engine.world, boxB);
-World.add(engine.world, user);
-World.add(engine.world, cuchara);
-
-
-// run the engine
-//Engine.run(engine);
-
-// run the renderer
-Render.run(render);
-
-
-draw();
-
-function draw(){
-  Runner.tick(runner, engine, 1000/60);
-  Body.setVelocity(boxA, {
-      x: 0,
-      y: 10
-    });
-  Body.setVelocity(boxB, {
-      x: 0,
-      y: 15
-    });
-    Body.setVelocity(user, {
-        x: 0,
-        y: 0
-      });
-      Body.setPosition(cuchara, {
-          x: 300,
-          y: 300
-        });
-
   requestAnimationFrame(draw);
 }

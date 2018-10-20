@@ -128,6 +128,7 @@ function draw(){
     }
   );*/
   //newBox.collisionFilter = -1;
+  newBox.restitution = 1;
   shapes.push(newBox);
   World.add(engine.world, shapes);
   }
@@ -142,7 +143,7 @@ function draw(){
 
   for(var i = shapes.length-1; i >= 0; i--){
     if(shapes[i].position.y > render.canvas.height || shapes[i].position.x < 220 || shapes[i].position.x > render.canvas.width){
-      shapes[i].render.fillStyle = 'transparent';
+      shapes[i].render.visible = false;
       World.remove(engine.world, shapes[i]);
       shapes.splice(i,1);
     }

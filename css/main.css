@@ -15,6 +15,66 @@ html {
     font-size: 1em;
     line-height: 1.4;
 }
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica, Arial, sans-serif;
+}
+.main_title {
+  position: absolute;
+  width: 100%;
+  background: #2e2f33;
+  z-index: 2;
+  padding: .7em 0;
+}
+
+.main_title a {
+  color: #fff;
+  border-bottom: 1px dotted #a64ceb;
+  text-decoration: none;
+}
+
+.main_title p {
+  color: #fff;
+  text-align: center;
+  text-transform: lowercase;
+  font-size: 15px;
+}
+
+.demo-frame {
+  background: url(frame.png) no-repeat;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0%;
+  left: 0%;
+  /* margin: -329px 0 0 -429px; */
+  /* padding: 95px 20px 45px 34px; */
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.demo-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: #eee;
+  overflow: hidden;
+  /* border-bottom-right-radius: 10px; */
+  /* border-bottom-left-radius: 10px; */
+  top: 0;
+  left: 0;
+}
+
+.dg.ac {
+  z-index: 100 !important;
+  top: 50px !important;
+}
 
 /*
  * Remove text-shadow in selection highlight:

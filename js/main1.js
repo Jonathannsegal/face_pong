@@ -120,9 +120,9 @@ function draw(){
     var newBox = Bodies.circle(rand,0,80,{
       render: {
         sprite: {
-          texture : 'img/pattern1.jpg',
-          xScale: 0.3,
-          yScale: 0.5
+          texture : 'img/blue1.png',
+          xScale: 0.6,
+          yScale: 0.6
         }
       }
     });

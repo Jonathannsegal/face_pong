@@ -8,26 +8,25 @@
   <title></title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
   <link rel="manifest" href="site.webmanifest">
   <link rel="apple-touch-icon" href="icon.png">
-  <!-- Place favicon.ico in the root directory -->
-
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/demo.css">
   <script src="js/vendor/tracking.js"></script>
   <script src="js/vendor/data/face-min.js"></script>
-  <script src="../node_modules/dat.gui/build/dat.gui.min.js"></script>
-  <script src="js/assets/stats.min.js"></script>
+  <!-- <script src="../node_modules/dat.gui/build/dat.gui.min.js"></script> -->
+  <script src="js/vendor/assets/stats.min.js"></script>
 
-  <style>
+  <!-- <style>
    video, canvas {
-     margin-left: 0px;
-     margin-top: 120px;
+     margin-left: 0;
+     margin-top: 0;
+     width: 100vw;
      position: absolute;
+     -webkit-transform: scaleX(-1);
+     transform: scaleX(-1);
    }
-   </style>
+   </style> -->
 
 </head>
 
@@ -41,6 +40,23 @@
   <div class="main_title">
       <p>Hungry Hungry Hackers</p>
     </div>
+
+    <!-- <video id="myVideo" width="400" height="300" preload autoplay loop muted></video>
+  <script>
+  var colors = new tracking.ColorTracker(['magenta', 'cyan', 'yellow']);
+
+  colors.on('track', function(event) {
+    if (event.data.length === 0) {
+      // No colors were detected in this frame.
+    } else {
+      event.data.forEach(function(rect) {
+        console.log(rect.x, rect.y, rect.height, rect.width, rect.color);
+      });
+    }
+  });
+
+  tracking.track('#myVideo', colors);
+  </script> -->
 
   <div class="demo-frame">
       <div class="demo-container">
@@ -62,7 +78,7 @@
   </script>
   <script src="https://www.google-analytics.com/analytics.js" async defer></script>
   <script src="js/vendor/matter.js"></script>
-  <script src="js/main1.js"></script>
+  <!-- <script src="js/main1.js"></script> -->
 <<<<<<< HEAD
 =======
   <script src="js/main2.js"></script>

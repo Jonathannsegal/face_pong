@@ -11,11 +11,14 @@ var Engine = Matter.Engine,
     Common = Matter.Common,
     Bodies = Matter.Bodies,
     Body = Matter.Body,
-    Runner = Matter.Runner;
+    Runner = Matter.Runner,
+    Bodies = Matter.Bodies;
 
 // create an engine
 var engine = Engine.create(),
     world = engine.world;
+    // world.gravity.x=0;
+    // world.gravity.x=0;
 
 // create a renderer
 var render = Render.create({
@@ -75,10 +78,52 @@ var runner = Runner.create();
     }
   );
 
+  var boxB = Bodies.rectangle(300,200,80,80,{
+    friction: 0,
+    frictionAir: 0,
+
+    // set the body's wrapping bounds
+    plugin: {
+      wrap: {
+        min: {
+          x: 0,
+          y: 0
+        },
+        max: {
+          x: render.canvas.width,
+          y: render.canvas.height
+        }
+      }
+    }
+  }
+);
+
+var user = Bodies.circle(900,300,40,{
+  friction: 0,
+  frictionAir: 0,
+
+  // set the body's wrapping bounds
+  plugin: {
+    wrap: {
+      min: {
+        x: 0,
+        y: 0
+      },
+      max: {
+        x: render.canvas.width,
+        y: render.canvas.height
+      }
+    }
+  }
+}
+);
+
 
 
 // add all of the bodies to the world
 World.add(engine.world, boxA);
+World.add(engine.world, boxB);
+World.add(engine.world, user);
 
 
 // run the engine
@@ -96,6 +141,14 @@ function draw(){
       x: 0,
       y: 10
     });
+  Body.setVelocity(boxB, {
+      x: 0,
+      y: 15
+    });
+    Body.setVelocity(user, {
+        x: 0,
+        y: 0
+      });
 
   requestAnimationFrame(draw);
 }

@@ -9,11 +9,7 @@
     <link rel="stylesheet" href="css/main.css">
 		<script src="js/vendor/cam/camvas.js"></script>
 		<script src="js/vendor/pico.min.js"></script> <!-- generated with https://jscompress.com/ -->
-		<script src="js/vendor/handtracking.js"></script>
-		<script src="js/vendor/cv.js"></script>
-		<script src="js/vendor/libs/polyfill.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
 	</head>
 	<script>
 		var initialized = false;
@@ -40,7 +36,6 @@
 				(2) get the drawing context on the canvas and define a function to transform an RGBA image to grayscale
 			*/
 			var ctx = document.getElementsByTagName('canvas')[0].getContext('2d');
-			var boundingbox = document.getElementById('testBoundingBox');
 			function rgba_to_grayscale(rgba, nrows, ncols) {
 				var gray = new Uint8Array(nrows*ncols);
 				for(var r=0; r<nrows; ++r)
@@ -69,7 +64,6 @@
 					"maxsize": 1000,    // maximum size of a face
 					"scalefactor": 1.1  // for multiscale processing: resize the detection window by 10% when moving to the higher scale
 				}
-
 				// run the cascade over the frame and cluster the obtained detections
 				// dets is an array that contains (r, c, s, q) quadruplets
 				// (representing row, column, scale and detection score)
@@ -85,13 +79,6 @@
 					{
 						ctx.beginPath();
 						ctx.arc(dets[i][1], dets[i][0], dets[i][2]/2, 0, 2*Math.PI, false);
-						boundingbox.style.right = ((dets[i][1])*2)+'px';
-						boundingbox.style.top = ((dets[i][0])*1.5)+'px';
-						document.getElementById("left").innerHTML = "X value: " + dets[i][1];
-						document.getElementById("right").innerHTML =  "Y value: " + dets[i][0];
-
-						// user = Bodies.circle(900,300,dets[i][1]);
-
 						ctx.lineWidth = 3;
 						ctx.strokeStyle = 'red';
 						ctx.stroke();
@@ -108,9 +95,7 @@
 		}
 	</script>
 	<body onload="button_callback()">
-		<div class="testBoundingBox" id="testBoundingBox"></div>
 		<!-- <p><center><input type="button" value="Start real-time face detection" onclick="button_callback()"></center></p> -->
-		<div class="info"><span id="left" class="left">XXXXX</span><span id="right" class="right">YYYYY</span></div>
 		<canvas width=640 height=480></canvas>
 		<style>
 		html{
@@ -130,7 +115,6 @@
 		}
 		</style>
 	</div>
-
   <script src="js/vendor/matter.js"></script>
   <script src="js/vendor/matter-wrap.js"></script>
   <script src="js/main1.js"></script>

@@ -56,7 +56,14 @@ var render = Render.create({
 //create a Runner
 var runner = Runner.create();
 
-// create two boxes
+var defaultCategory = 0x0001,
+    faceCategory = 0x0002,
+    squareCategory1 = 0x0003,
+    squareCategory2 = 0x0004,
+    squareCategory3 = 0x0005,
+    squareCategory4 = 0x0006,
+    squareCategory5 = 0x0007;
+var index = 1;
 
 
 // ctx.arc(dets[i][1], dets[i][0], dets[i][2]/2, 0, 2*Math.PI, false);
@@ -68,6 +75,7 @@ var cuchara = Bodies.circle(-300,-300,100,
           }}
 );
 cuchara.render.opacity = 0.2;
+cuchara.collisionFilter.category = faceCategory;
 // var cuchara = Bodies.ctx.arc(100, 100,20, 0, 2*Math.PI, false,
 //       {
 //
@@ -107,8 +115,9 @@ function draw(){
 
 
 
-  if(shapes.length <= 14){
-    var newBox = Bodies.rectangle(Common.random(220,render.canvas.width-40),0,80,80)
+  if(shapes.length <= 4){
+    var rand = Common.random(220,render.canvas.width-40);
+    var newBox = Bodies.rectangle(rand,0,80,80)
     /*var newBox = Bodies.rectangle(Common.random(0,1000),200,80,80,{
       friction: 0,
       frictionAir: 0,
@@ -128,7 +137,30 @@ function draw(){
       }
     }
   );*/
-  //newBox.collisionFilter = -1;
+  if(index > 5){
+    index = 1;
+  }
+  if(index == 1){
+    newBox.collisionFilter.category = squareCategory1;
+    index++;
+  }
+  else if(index == 2){
+    newBox.collisionFilter.category = squareCategory2;
+    index++;
+  }
+  else if(index == 3){
+    newBox.collisionFilter.category = squareCategory3;
+    index++;
+  }
+  else if(index == 4){
+    newBox.collisionFilter.category = squareCategory4;
+    index++;
+  }
+  else{
+    newBox.collisionFilter.category = squareCategory5;
+    index++;
+  }
+  newBox.collisionFilter.mask = faceCategory;
   newBox.restitution = 1;
   newBox.frictionAir = 0;
   shapes.push(newBox);

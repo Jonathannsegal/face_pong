@@ -1,12 +1,21 @@
-// module aliases
+Matter.use(
+  'matter-wrap'
+)
+
+/// module aliases
 var Engine = Matter.Engine,
     Render = Matter.Render,
     World = Matter.World,
+    Composite = Matter.Composite,
+    Composites = Matter.Composites,
+    Common = Matter.Common,
     Bodies = Matter.Bodies,
+    Body = Matter.Body,
     Runner = Matter.Runner;
 
 // create an engine
-var engine = Engine.create();
+var engine = Engine.create(),
+    world = engine.world;
 
 // create a renderer
 var render = Render.create({
@@ -42,17 +51,42 @@ var render = Render.create({
 });
 
 //create a Runner
-//var runner = Runner.create();
-//Runner.run(runner, engine);
+var runner = Runner.create();
+Runner.run(runner, engine);
+
 // create two boxes
-var boxA = Bodies.rectangle(40, 200, 80, 80);
-var boxB = Bodies.rectangle(800, 50, 80, 80);
+
+    var boxA = Bodies.rectangle(400,200,80,80,{
+      friction: 0,
+      frictionAir: 0,
+
+      // set the body's wrapping bounds
+      plugin: {
+        wrap: {
+          min: {
+            x: 0,
+            y: 0
+          },
+          max: {
+            x: render.canvas.width,
+            y: render.canvas.height
+          }
+        }
+      }
+    }
+  );
+
+  Body.setVelocity(boxA, {
+      x: 0,
+      y: 10
+    });
 
 // add all of the bodies to the world
-World.add(engine.world, [boxA, boxB]);
+World.add(engine.world, boxA);
+
 
 // run the engine
-Engine.run(engine);
+//Engine.run(engine);
 
 // run the renderer
 Render.run(render);

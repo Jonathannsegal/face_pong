@@ -116,12 +116,8 @@ function draw(){
 
 
   if(shapes.length <= 4){
-<<<<<<< HEAD
     var rand = Common.random(220,render.canvas.width-40);
     var newBox = Bodies.rectangle(rand,0,80,80)
-=======
-    var newBox = Bodies.rectangle(Common.random(220,render.canvas.width-40),0,80,80)
->>>>>>> b55f028f0c46d3ae7cd5e1edad5e2903f270cfcc
     /*var newBox = Bodies.rectangle(Common.random(0,1000),200,80,80,{
       friction: 0,
       frictionAir: 0,

@@ -60,11 +60,7 @@ var runner = Runner.create();
 
 
 // ctx.arc(dets[i][1], dets[i][0], dets[i][2]/2, 0, 2*Math.PI, false);
-<<<<<<< HEAD
 var cuchara = Bodies.circle(-300,-300,100,
-=======
-var cuchara = Bodies.circle(300,300,80,
->>>>>>> 687fcee5cc392d7c8bdbeec0527b43bba2bf8a4e
       {
 
           render: {

@@ -4,12 +4,16 @@
     <meta name="google-site-verification" content="aQvWB7cOiIGuz2EWP3eROuilQaqAgOZ0sFG4w8wUKhM" />
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="chrome=1">
-		<title>pico.js: face detection in JavaScript</title>
+		<title>you will enjoy this... or else</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/main.css">
 		<script src="js/vendor/cam/camvas.js"></script>
 		<script src="js/vendor/pico.min.js"></script> <!-- generated with https://jscompress.com/ -->
+		<script src="js/vendor/handtracking.js"></script>
+		<script src="js/vendor/cv.js"></script>
+		<script src="js/vendor/libs/polyfill.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
 	</head>
 	<script>
 		var initialized = false;
@@ -36,6 +40,7 @@
 				(2) get the drawing context on the canvas and define a function to transform an RGBA image to grayscale
 			*/
 			var ctx = document.getElementsByTagName('canvas')[0].getContext('2d');
+			// var boundingbox = document.getElementById('testBoundingBox');
 			function rgba_to_grayscale(rgba, nrows, ncols) {
 				var gray = new Uint8Array(nrows*ncols);
 				for(var r=0; r<nrows; ++r)
@@ -64,6 +69,7 @@
 					"maxsize": 1000,    // maximum size of a face
 					"scalefactor": 1.1  // for multiscale processing: resize the detection window by 10% when moving to the higher scale
 				}
+
 				// run the cascade over the frame and cluster the obtained detections
 				// dets is an array that contains (r, c, s, q) quadruplets
 				// (representing row, column, scale and detection score)
@@ -79,6 +85,16 @@
 					{
 						ctx.beginPath();
 						ctx.arc(dets[i][1], dets[i][0], dets[i][2]/2, 0, 2*Math.PI, false);
+						// boundingbox.style.right = ((dets[i][1])*2)+'px';
+						// boundingbox.style.top = ((dets[i][0])*1.5)+'px';
+						Matter.Body.setPosition(cuchara, { x: 1.6*((dets[i][1])+150), y: 1.6*((dets[i][0])+10)});
+						// Matter.Body
+						// document.getElementById("left").innerHTML = "canvas width: "+ document.getElementsByTagName('canvas')[0].width + " canvas height: "+ document.getElementsByTagName('canvas')[0].height;
+						// Matter.Body.scale(cuchara, width: 2, height: 2);
+						// c.moveTo(part.vertices[0].x, part.vertices[0].y);
+						// document.getElementById("left").innerHTML = "X value: " + dets[i][1];
+						// document.getElementById("right").innerHTML =  "Y value: " + dets[i][0];
+
 						ctx.lineWidth = 3;
 						ctx.strokeStyle = 'red';
 						ctx.stroke();
@@ -95,8 +111,12 @@
 		}
 	</script>
 	<body onload="button_callback()">
+		<!-- <div class="testBoundingBox" id="testBoundingBox"></div> -->
 		<!-- <p><center><input type="button" value="Start real-time face detection" onclick="button_callback()"></center></p> -->
+		<!-- <div class="info"><span id="score" class="score">Score: 0</span><span id="right" class="right">YYYYY</span></div> -->
+		<!-- <div class="info"><span id="score" class="score">Score: 0</span></div> -->
 		<canvas width=640 height=480></canvas>
+		<h1 data-heading="Score 1" contenteditable id="score">Score 0</h1>
 		<style>
 		html{
 			width: 100%;
@@ -106,6 +126,7 @@
 		}
 		canvas {
 			/* width: 100vw; */
+			z-index: 0;
 			height: 100vh;
   		margin: 0;
 			padding: 0;
@@ -115,8 +136,12 @@
 		}
 		</style>
 	</div>
+
   <script src="js/vendor/matter.js"></script>
   <script src="js/vendor/matter-wrap.js"></script>
   <script src="js/main1.js"></script>
+	<!-- <script src="js/scriptphysics.js"></script> -->
+	<!-- <script src="collect.js"></script> -->
+	<!-- <script src="js/main3.js"></script> -->
 	</body>
 </html>

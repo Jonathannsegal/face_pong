@@ -117,7 +117,15 @@ function draw(){
 
   if(shapes.length <= 4){
     var rand = Common.random(220,render.canvas.width-40);
-    var newBox = Bodies.rectangle(rand,0,80,80)
+    var newBox = Bodies.circle(rand,0,80,{
+      render: {
+        sprite: {
+          texture : 'img/pattern1.jpg',
+          xScale: 0.3,
+          yScale: 0.5
+        }
+      }
+    });
     /*var newBox = Bodies.rectangle(Common.random(0,1000),200,80,80,{
       friction: 0,
       frictionAir: 0,

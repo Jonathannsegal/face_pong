@@ -38,7 +38,8 @@ body {
   text-decoration:none;
   background-image: #000;
 
-  width: 24.789vw;
+  /* width: 24.789vw; */
+    width: 24.75vw;
   height: 100vh;
 
 	border: 0 solid rgba(0, 0, 0, 0);

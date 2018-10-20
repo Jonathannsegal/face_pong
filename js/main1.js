@@ -149,7 +149,7 @@ function draw(){
     }
     if(shapes[i].position.x < 220 || shapes[i].position.x > render.canvas.width+40){
       score++;
-      // document.getElementById("score").innerHTML = "Score: " + score;
+      document.getElementById("score").innerHTML = "Score: " + score;
       shapes[i].render.visible = false;
       World.remove(engine.world, shapes[i]);
       shapes.splice(i,1);

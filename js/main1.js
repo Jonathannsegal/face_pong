@@ -105,7 +105,7 @@ function draw(){
 
 
 
-  if(shapes.length <= 9){
+  if(shapes.length <= 2){
     var newBox = Bodies.rectangle(Common.random(220,render.canvas.width-40),0,80,80)
     /*var newBox = Bodies.rectangle(Common.random(0,1000),200,80,80,{
       friction: 0,
@@ -134,13 +134,13 @@ function draw(){
   for(var i = 0; i < shapes.length; i++){
     Body.setVelocity(shapes[i], {
       x:0,
-      y:1
+      y:2
     });
   }
 
 
   for(var i = shapes.length-1; i >= 0; i--){
-    if(shapes[i].position.y > render.canvas.height){
+    if(shapes[i].position.y > render.canvas.height || shapes[i].position.x < 120 || shapes[i].position.x > render.canvas.width + 100){
       World.remove(engine.world, shapes[i]);
       shapes.splice(i,1);
     }

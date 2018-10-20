@@ -40,7 +40,7 @@
 				(2) get the drawing context on the canvas and define a function to transform an RGBA image to grayscale
 			*/
 			var ctx = document.getElementsByTagName('canvas')[0].getContext('2d');
-			var boundingbox = document.getElementById('testBoundingBox');
+			// var boundingbox = document.getElementById('testBoundingBox');
 			function rgba_to_grayscale(rgba, nrows, ncols) {
 				var gray = new Uint8Array(nrows*ncols);
 				for(var r=0; r<nrows; ++r)
@@ -85,12 +85,15 @@
 					{
 						ctx.beginPath();
 						ctx.arc(dets[i][1], dets[i][0], dets[i][2]/2, 0, 2*Math.PI, false);
-						boundingbox.style.right = ((dets[i][1])*2)+'px';
-						boundingbox.style.top = ((dets[i][0])*1.5)+'px';
+						// boundingbox.style.right = ((dets[i][1])*2)+'px';
+						// boundingbox.style.top = ((dets[i][0])*1.5)+'px';
+						Matter.Body.setPosition(cuchara, { x: ((dets[i][1])+500), y: ((dets[i][0])+80)});
+						// Matter.Body
+						// document.getElementById("left").innerHTML = "arc value: " + ctx.arc(x);
+						// Matter.Body.scale(cuchara, width: 2, height: 2);
+						// c.moveTo(part.vertices[0].x, part.vertices[0].y);
 						document.getElementById("left").innerHTML = "X value: " + dets[i][1];
 						document.getElementById("right").innerHTML =  "Y value: " + dets[i][0];
-
-						// user = Bodies.circle(900,300,dets[i][1]);
 
 						ctx.lineWidth = 3;
 						ctx.strokeStyle = 'red';
@@ -108,7 +111,7 @@
 		}
 	</script>
 	<body onload="button_callback()">
-		<div class="testBoundingBox" id="testBoundingBox"></div>
+		<!-- <div class="testBoundingBox" id="testBoundingBox"></div> -->
 		<!-- <p><center><input type="button" value="Start real-time face detection" onclick="button_callback()"></center></p> -->
 		<div class="info"><span id="left" class="left">XXXXX</span><span id="right" class="right">YYYYY</span></div>
 		<canvas width=640 height=480></canvas>
@@ -134,5 +137,6 @@
   <script src="js/vendor/matter.js"></script>
   <script src="js/vendor/matter-wrap.js"></script>
   <script src="js/main1.js"></script>
+	<!-- <script src="js/main3.js"></script> -->
 	</body>
 </html>

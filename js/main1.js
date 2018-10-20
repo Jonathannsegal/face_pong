@@ -118,12 +118,30 @@ var user = Bodies.circle(900,300,40,{
 }
 );
 
+// ctx.arc(dets[i][1], dets[i][0], dets[i][2]/2, 0, 2*Math.PI, false);
+var cuchara = Bodies.circle(300,300,100,
+      {
+
+          render: {
+            // fillStyle: 'transparent'
+          }}
+);
+
+// var cuchara = Bodies.ctx.arc(100, 100,20, 0, 2*Math.PI, false,
+//       {
+//
+//           render: {
+//             // fillStyle: 'transparent'
+//           }}
+// );
+
 
 
 // add all of the bodies to the world
 World.add(engine.world, boxA);
 World.add(engine.world, boxB);
 World.add(engine.world, user);
+World.add(engine.world, cuchara);
 
 
 // run the engine
@@ -149,6 +167,10 @@ function draw(){
         x: 0,
         y: 0
       });
+      Body.setPosition(cuchara, {
+          x: 300,
+          y: 300
+        });
 
   requestAnimationFrame(draw);
 }

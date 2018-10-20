@@ -87,10 +87,11 @@ World.add(engine.world, cuchara);
 
 
 // run the engine
-//Engine.run(engine);
+// Engine.run(engine);
 
 // run the renderer
 Render.run(render);
+
 engine.world.gravity.y = 0;
 
 draw();
@@ -126,7 +127,7 @@ function draw(){
       }
     }
   );*/
-  newBox.collisionFilter = -1;
+  //newBox.collisionFilter = -1;
   shapes.push(newBox);
   World.add(engine.world, shapes);
   }

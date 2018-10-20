@@ -23,7 +23,7 @@ html {
 }
 body {
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-  font-size: 14px;
+  font-size: 17px;
   font-style: normal;
   font-variant: normal;
   font-weight: 400;
@@ -72,19 +72,18 @@ body {
 }
 
 .one{
-  background-color:#DC6A18;
+  background:url(../img/pattern1.jpg);
 }
 .two{
-  background-color:#25501B;
+  background:url(../img/pattern2.jpg);
 }
 .three{
-  background-color:#2C1D58;
+  background:url(../img/pattern3.jpg);
 }
 .four{
-  background-color:#324195;
+  background:url(../img/pattern4.jpg);
 }
-.five{
-  background-color:#5BA7C8;
+
 }
 
 

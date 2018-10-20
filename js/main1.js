@@ -140,7 +140,7 @@ function draw(){
 
 
   for(var i = shapes.length-1; i >= 0; i--){
-    if(shapes[i].position.y > render.canvas.height || shapes[i].position.x < 120 || shapes[i].position.x > render.canvas.width + 100){
+    if(shapes[i].position.y > render.canvas.height || shapes[i].position.x < 200 || shapes[i].position.x > render.canvas.width){
       World.remove(engine.world, shapes[i]);
       shapes.splice(i,1);
     }

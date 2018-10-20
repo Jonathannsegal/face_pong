@@ -42,11 +42,10 @@ var render = Render.create({
 
 // create two boxes and a ground
 var boxA = Bodies.rectangle(40, 200, 80, 80);
-var boxB = Bodies.rectangle(screen.width-40, 50, 80, 80);
-var ground = Bodies.rectangle(screen.width/2, 610, screen.width, 60, { isStatic: true });
+var boxB = Bodies.rectangle(800, 50, 80, 80);
 
 // add all of the bodies to the world
-World.add(engine.world, [boxA, boxB, ground]);
+World.add(engine.world, [boxA, boxB]);
 
 // run the engine
 Engine.run(engine);

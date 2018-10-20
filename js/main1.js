@@ -96,7 +96,7 @@ engine.world.gravity.y = 0;
 draw();
 
 function draw(){
-  Runner.tick(runner, engine, 1000/60);
+
 
   Body.setPosition(cuchara, {
       x: -300,
@@ -145,5 +145,6 @@ function draw(){
       shapes.splice(i,1);
     }
   }
+  Runner.tick(runner, engine, 1000/60);
   requestAnimationFrame(draw);
 }

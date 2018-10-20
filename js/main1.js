@@ -135,7 +135,7 @@ function draw(){
 
   for(var i = 0; i < shapes.length; i++){
     Body.setVelocity(shapes[i], {
-      x:0,
+      x: shapes[i].velocity.x,
       y:2
     });
   }

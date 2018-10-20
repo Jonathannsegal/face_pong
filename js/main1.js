@@ -93,6 +93,7 @@ var score = 0;
 Render.run(render);
 
 engine.world.gravity.y = 0;
+engine.world.gravity.x = 0;
 
 draw();
 

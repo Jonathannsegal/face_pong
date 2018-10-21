@@ -155,11 +155,11 @@ Events.on(engine, "collisionStart", function(event){
 function checkOver(){
   if(scorePlayer1 >= 5){
     localStorage.setItem("winner","Player 1 Wins");
-    window.location.pathname = 'C:/Users/jonat/Documents/GitHub/hungryhungryhacker/GameOverScreen2.html';
+    window.location.href = 'GameOverScreen2.html';
   }
   if (scorePlayer2 >= 5){
     localStorage.setItem("winner","Player 2 Wins");
-    window.location.pathname = 'C:/Users/jonat/Documents/GitHub/hungryhungryhacker/GameOverScreen2.html';
+    window.location.href = 'GameOverScreen2.html';
   }
 }
 

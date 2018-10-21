@@ -209,7 +209,7 @@ function draw(){
           localStorage.setItem("scoreTime",timecount);
           clearInterval(timerinterval);
           document.getElementById("time").innerHTML = "Finished";
-          window.location.pathname = 'C:/Users/jonat/Documents/GitHub/hungryhungryhacker/GameOverScreen1.html';
+          window.location.href = 'GameOverScreen1.html';
         } else {
         document.getElementById("score").innerHTML = "Score: " + score;
       }

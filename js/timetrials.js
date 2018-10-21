@@ -204,7 +204,7 @@ function draw(){
     if(shapes[i].position.x < 220 || shapes[i].position.x > render.canvas.width+40){
       if(shapes[i].position.y>50){
         score++;
-        if (score >= 3) {
+        if (score >= 10) {
           localStorage.setItem("scoreTime",timecount);
           clearInterval(timerinterval);
           document.getElementById("time").innerHTML = "Finished";

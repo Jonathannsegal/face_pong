@@ -112,6 +112,8 @@ var collisionPointP1 = Matter.Pair.id(ball, rightWall);
 var collisionPointP2 = Matter.Pair.id(ball, leftWall);
 var collisionPlayer1 = Matter.Pair.id(ball, cuchara);
 var collisionPlayer2 = Matter.Pair.id(ball, cuchara2);
+var scorePlayer1 = 0;
+var scorePlayer2 = 0;
 
 Events.on(engine, "collisionStart", function(event){
     var pairs = event.pairs;
@@ -127,11 +129,15 @@ Events.on(engine, "collisionStart", function(event){
         }
 
         if(pair.id == collisionPointP1){
-          Body.setVelocity(ball, {x:-ball.velocity.x, y:ball.velocity.y});
+          scorePlayer1++;
+          document.getElementById('score1').innerHTML = "Player 1: " + scorePlayer1;
+          resetBall();
         }
 
         if(pair.id == collisionPointP2){
-          Body.setVelocity(ball, {x:-ball.velocity.x, y:ball.velocity.y});
+          scorePlayer2++;
+          document.getElementById('score2').innerHTML = "Player 2: " + scorePlayer2;
+          resetBall();
         }
 
         if(pair.id == collisionPlayer1){
@@ -143,7 +149,22 @@ Events.on(engine, "collisionStart", function(event){
         }
     }
 });
+<<<<<<< HEAD
+=======
 
+function resetBall(){
+  Body.setVelocity(ball, {x:0,y:0});
+  Body.setPosition(ball, {x:render.canvas.width/2,y:render.canvas.width/2});
+}
+
+$(window).keypress(function(e) {
+    if (e.which === 32) {
+>>>>>>> 341470a59a10891b771ffe0c2f1a7dbc4a0dc58d
+
+        Body.setVelocity(ball, {x:3, y:3});
+
+    }
+});
 
 draw();
 

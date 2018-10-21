@@ -14,7 +14,10 @@
 	</head>
 	<script>
 	window.onload = function() {
-		document.getElementById('timeholder').innerHTML = "Time: " + localStorage.getItem("scoreTime");
+		document.getElementById("timeholder").innerHTML = localStorage.getItem("winner");
+		$.get("https://maker.ifttt.com/trigger/tweet/with/key/nvjOjBYWYZaTCqh3kV_Aplqcd87CLKjg32N1l8Mqwc7", function(data, status) {
+			console.log(data)
+		})
 	}
 	</script>
 	<body>
@@ -22,9 +25,7 @@
 	  <h1 id="timeholder">You Lose!</h1>
 	  <a href="Gamemode3.html" class="rollover one"><p>Play again?</p></a>
 		<a href="index.html" class="rollover one"><p>Main menu</p></a>
-		<a class="twitter-share-button"
-  href="https://twitter.com/intent/tweet?text=Player%20scored:%20#HackISU">
-	Tweet</a>
+		<a class="twitter-share-button" href="https://twitter.com/intent/tweet"> Tweet</a>
 	</div>
 	</body>
 </html>

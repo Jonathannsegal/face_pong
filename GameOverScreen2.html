@@ -14,7 +14,7 @@
 	</head>
 	<script>
 	window.onload = function() {
-		document.getElementById("timeholder").innerHTML = localStorage.getItem("winner");
+		document.getElementById("winnerflag").innerHTML = localStorage.getItem("winner");
 		$.get("https://maker.ifttt.com/trigger/tweet/with/key/nvjOjBYWYZaTCqh3kV_Aplqcd87CLKjg32N1l8Mqwc7", function(data, status) {
 			console.log(data)
 		})
@@ -22,7 +22,7 @@
 	</script>
 	<body>
 		<div class="container">
-	  <h1 id="timeholder">You Lose!</h1>
+	  <h1 id="winnerflag">You Lose!</h1>
 	  <a href="GameMode3.html" class="rollover one"><p>Play again?</p></a>
 		<a href="index.html" class="rollover one"><p>Main menu</p></a>
 		<a class="twitter-share-button" href="https://twitter.com/intent/tweet"> Tweet</a>

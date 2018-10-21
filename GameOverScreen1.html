@@ -10,10 +10,14 @@
 		<!-- <script src="js/vendor/cam/camvas.js"></script>
 		<script src="js/vendor/pico.min.js"></script> <!-- generated with https://jscompress.com/ -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	</head>
 	<script>
 	window.onload = function() {
 		document.getElementById("timeholder").innerHTML = "Time: " + localStorage.getItem("scoreTime");
+		$.get("https://maker.ifttt.com/trigger/tweet/with/key/nvjOjBYWYZaTCqh3kV_Aplqcd87CLKjg32N1l8Mqwc7", function(data, status) {
+			console.log(data)
+		})
 	}
 	</script>
 	<body>

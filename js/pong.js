@@ -59,16 +59,19 @@ var runner = Runner.create();
 
 //create a ball
 var ball = Bodies.circle(render.canvas.width/2, render.canvas.height/2, 40, {
-  frictionAir:0
+  frictionAir:0,
+  friction:0
 });
 
 
 var topWall = Bodies.rectangle(render.canvas.width/2, 0, render.canvas.width, 10, {isStatic:true});
 var bottomWall = Bodies.rectangle(render.canvas.width/2, render.canvas.height, render.canvas.width, 10, {isStatic:true});
+var rightWall = Bodies.rectangle(0, render.canvas.height/2, 10, render.canvas.height, {isStatic:true});
+var leftWall = Bodies.rectangle(render.canvas.width, render.canvas.height/2, 10, render.canvas.height, {isStatic:true});
 // ctx.arc(dets[i][1], dets[i][0], dets[i][2]/2, 0, 2*Math.PI, false);
 
 // add all of the bodies to the world
-World.add(engine.world, [topWall, bottomWall, ball])
+World.add(engine.world, [topWall, bottomWall, leftWall, rightWall, ball])
 
 Body.setVelocity(ball, {
   x:3,
@@ -87,6 +90,8 @@ engine.world.gravity.x = 0;
 
 var collisionTopWall = Matter.Pair.id(ball,topWall);
 var collisionBottomWall = Matter.Pair.id(ball, bottomWall);
+var collisionPointP1 = Matter.Pair.id(ball, rightWall);
+var collisionPointP2 = Matter.Pair.id(ball, leftWall);
 
 Events.on(engine, "collisionStart", function(event){
     var pairs = event.pairs;
@@ -94,27 +99,23 @@ Events.on(engine, "collisionStart", function(event){
         var pair = pairs[i];
 
         if(pair.id == collisionTopWall){
-          changeBallVelocity();
+          Body.setVelocity(ball, {x:ball.velocity.x, y:-ball.velocity.y});
         }
 
         if(pair.id == collisionBottomWall){
-          changeBallVelocity();
+          Body.setVelocity(ball, {x:ball.velocity.x, y:-ball.velocity.y});
+        }
+
+        if(pair.id == collisionPointP1){
+          Body.setVelocity(ball, {x:-ball.velocity.x, y:ball.velocity.y});
+        }
+
+        if(pair.id == collisionPointP2){
+          Body.setVelocity(ball, {x:-ball.velocity.x, y:ball.velocity.y});
         }
     }
 })
 
-var rateChange = 1;
-function changeBallVelocity(){
-		if(ball.velocity.x>0 && ball.velocity.y>0){
-			Body.setVelocity(ball, {x:ball.velocity.x+rateChange,y:ball.velocity.y+rateChange});
-		}else if(ball.velocity.x<0 && ball.velocity.y<0){
-			Body.setVelocity(ball, {x:ball.velocity.x-rateChange,y:ball.velocity.y-rateChange});
-		}else if(ball.velocity.x>0 && ball.velocity.y<0){
-			Body.setVelocity(ball, {x:ball.velocity.x+rateChange,y:ball.velocity.y-rateChange});
-		}else{
-			Body.setVelocity(ball, {x:ball.velocity.x-rateChange,y:ball.velocity.y+rateChange});
-		}
-	}
 
 draw();
 

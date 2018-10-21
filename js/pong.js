@@ -82,6 +82,24 @@ var score = 0;
 // run the renderer
 Render.run(render);
 
+var cuchara = Bodies.square(-300,-300,100,100,
+      {
+
+          render: {
+            // fillStyle: 'transparent'
+          }}
+);
+var cuchara2 = Bodies.square(-300,-300,100,100,
+      {
+
+          render: {
+            // fillStyle: 'transparent'
+          }}
+);
+
+World.add(engine.world, cuchara);
+World.add(engine.world, cuchara2);
+
 engine.world.gravity.y = 0;
 engine.world.gravity.x = 0;
 

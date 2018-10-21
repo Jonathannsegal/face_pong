@@ -143,11 +143,11 @@ Events.on(engine, "collisionStart", function(event){
         }
 
         if(pair.id == collisionPlayer1){
-          Body.setVelocity(ball, {x:-ball.velocity.x, y:ball.velocity.y});
+          Body.setVelocity(ball, {x:-ball.velocity.x-1, y:ball.velocity.y+1});
         }
 
         if(pair.id == collisionPlayer2){
-          Body.setVelocity(ball, {x:-ball.velocity.x, y:ball.velocity.y});
+          Body.setVelocity(ball, {x:-ball.velocity.x-1, y:ball.velocity.y+1});
         }
     }
 });

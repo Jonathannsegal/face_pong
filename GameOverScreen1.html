@@ -11,10 +11,15 @@
 		<script src="js/vendor/pico.min.js"></script> <!-- generated with https://jscompress.com/ -->
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	</head>
+	<script>
+	window.onload = function() {
+		document.getElementById("timeholder").innerHTML = "Time: " + localStorage.getItem("scoreTime");
+	}
+	</script>
 	<body>
 		<div class="container">
-	  <h1>Game Over</h1>
-	  <a href="Gamemode1.html" class="rollover one"><p>Play again?</p></a>
+	  <h1 id="timeholder">Game Over</h1>
+	  <a href="Gamemode2.html" class="rollover one"><p>Play again?</p></a>
 		<a href="index.html" class="rollover one"><p>Main menu</p></a>
 	</div>
 	</body>

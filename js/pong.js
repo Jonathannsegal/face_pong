@@ -85,14 +85,14 @@ var score = 0;
 // run the renderer
 Render.run(render);
 
-var cuchara = Bodies.rectangle(-300,-300,100,200,
+var cuchara = Bodies.rectangle(-300,-300,100,300,
       {
           isStatic : true,
           render: {
             // fillStyle: 'transparent'
           }}
 );
-var cuchara2 = Bodies.rectangle(-300,-300,100,200,
+var cuchara2 = Bodies.rectangle(-300,-300,100,300,
       {
           isStatic : true,
           render: {
@@ -110,6 +110,8 @@ var collisionTopWall = Matter.Pair.id(ball,topWall);
 var collisionBottomWall = Matter.Pair.id(ball, bottomWall);
 var collisionPointP1 = Matter.Pair.id(ball, rightWall);
 var collisionPointP2 = Matter.Pair.id(ball, leftWall);
+var collisionPlayer1 = Matter.Pair.id(ball, cuchara);
+var collisionPlayer2 = Matter.Pair.id(ball, cuchara2);
 
 Events.on(engine, "collisionStart", function(event){
     var pairs = event.pairs;
@@ -130,6 +132,14 @@ Events.on(engine, "collisionStart", function(event){
 
         if(pair.id == collisionPointP2){
           Body.setVelocity(ball, {x:-ball.velocity.x, y:ball.velocity.y});
+        }
+
+        if(pair.id == collisionPlayer1){
+          Body.setVelocity(ball, {x:-ball.velocity.x, y:ball.velocity.y})
+        }
+
+        if(pair.id == collisionPlayer2){
+          Body.setVelocity(ball, {x:-ball.velocity.x, y:ball.velocity.y})
         }
     }
 })

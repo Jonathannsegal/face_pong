@@ -74,8 +74,8 @@ var leftWall = Bodies.rectangle(render.canvas.width, render.canvas.height/2, 10,
 World.add(engine.world, [topWall, bottomWall, leftWall, rightWall, ball])
 
 Body.setVelocity(ball, {
-  x:3,
-  y:3
+  x:0,
+  y:0
 });
 
 var score = 0;
@@ -130,12 +130,14 @@ Events.on(engine, "collisionStart", function(event){
 
         if(pair.id == collisionPointP1){
           scorePlayer1++;
+          checkOver();
           document.getElementById('score1').innerHTML = "Player 1: " + scorePlayer1;
           resetBall();
         }
 
         if(pair.id == collisionPointP2){
           scorePlayer2++;
+          checkOver();
           document.getElementById('score2').innerHTML = "Player 2: " + scorePlayer2;
           resetBall();
         }
@@ -149,22 +151,36 @@ Events.on(engine, "collisionStart", function(event){
         }
     }
 });
-<<<<<<< HEAD
-=======
+
+function checkOver(){
+  if(scorePlayer1 >= 5){
+    localStorage.setItem("winner","Player 1 Wins");
+    window.location.pathname = 'C:/Users/jonat/Documents/GitHub/hungryhungryhacker/GameOverScreen2.html';
+  }
+  if (scorePlayer2 >= 5){
+    localStorage.setItem("winner","Player 2 Wins");
+    window.location.pathname = 'C:/Users/jonat/Documents/GitHub/hungryhungryhacker/GameOverScreen2.html';
+  }
+}
 
 function resetBall(){
   Body.setVelocity(ball, {x:0,y:0});
   Body.setPosition(ball, {x:render.canvas.width/2,y:render.canvas.width/2});
 }
 
-$(window).keypress(function(e) {
+/*$(window).keypress(function(e) {
     if (e.which === 32) {
->>>>>>> 341470a59a10891b771ffe0c2f1a7dbc4a0dc58d
 
         Body.setVelocity(ball, {x:3, y:3});
 
     }
-});
+});*/
+
+document.onkeypress = function (e) {
+    if(e.keyCode == 32){
+    Body.setVelocity(ball,{x:3,y:3});
+  }
+};
 
 draw();
 

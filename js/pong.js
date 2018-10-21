@@ -85,11 +85,7 @@ var score = 0;
 // run the renderer
 Render.run(render);
 
-<<<<<<< HEAD
-var cuchara = Bodies.rectangle(-300,-300,100,600,
-=======
 var cuchara = Bodies.rectangle(-300,-300,100,300,
->>>>>>> 155dc9c06669a9b81c1e67a4bf1b6d7a35ac2e19
       {
           isStatic : true,
           render: {
@@ -139,14 +135,14 @@ Events.on(engine, "collisionStart", function(event){
         }
 
         if(pair.id == collisionPlayer1){
-          Body.setVelocity(ball, {x:-ball.velocity.x, y:ball.velocity.y})
+          Body.setVelocity(ball, {x:-ball.velocity.x, y:ball.velocity.y});
         }
 
         if(pair.id == collisionPlayer2){
-          Body.setVelocity(ball, {x:-ball.velocity.x, y:ball.velocity.y})
+          Body.setVelocity(ball, {x:-ball.velocity.x, y:ball.velocity.y});
         }
     }
-})
+});
 
 
 draw();

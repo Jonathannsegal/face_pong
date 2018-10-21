@@ -1,3 +1,15 @@
+document.getElementById("time").innerHTML = "time";
+var timecount = 0;
+function clock() {
+  timecount += 1;
+  // var seconds = timecount.getSeconds();
+  // var mili = timecount.getMilliseconds();
+  // document.getElementById("time").innerHTML = seconds + "." + mili + "s, ";
+  document.getElementById("time").innerHTML = "Time: " + timecount + " ";
+}
+
+var timerinterval = setInterval(clock, 10);
+
 Matter.use(
   'matter-wrap'
 )
@@ -92,6 +104,7 @@ var shapes = new Array();
 
 // add all of the bodies to the world
 World.add(engine.world, cuchara);
+// timer
 
 var score = 0;
 // run the engine
@@ -192,7 +205,14 @@ function draw(){
     if(shapes[i].position.x < 220 || shapes[i].position.x > render.canvas.width+40){
       if(shapes[i].position.y>50){
         score++;
+        if (score >= 10) {
+          localStorage.setItem("scoreTime",timecount);
+          clearInterval(timerinterval);
+          document.getElementById("time").innerHTML = "Finished";
+          window.location.pathname = 'C:/Users/jonat/Documents/GitHub/hungryhungryhacker/GameOverScreen1.html';
+        } else {
         document.getElementById("score").innerHTML = "Score: " + score;
+      }
       }
       shapes[i].render.visible = false;
       World.remove(engine.world, shapes[i]);

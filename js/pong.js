@@ -66,7 +66,7 @@ var ball = Bodies.circle(render.canvas.width/2, render.canvas.height/2, 40, {
 
 var topWall = Bodies.rectangle(render.canvas.width/2, 0, render.canvas.width, 10, {isStatic:true});
 var bottomWall = Bodies.rectangle(render.canvas.width/2, render.canvas.height, render.canvas.width, 10, {isStatic:true});
-var rightWall = Bodies.rectangle(0, render.canvas.height/2, 10, render.canvas.height, {isStatic:true});
+var rightWall = Bodies.rectangle(220, render.canvas.height/2, 10, render.canvas.height, {isStatic:true});
 var leftWall = Bodies.rectangle(render.canvas.width, render.canvas.height/2, 10, render.canvas.height, {isStatic:true});
 // ctx.arc(dets[i][1], dets[i][0], dets[i][2]/2, 0, 2*Math.PI, false);
 
@@ -85,14 +85,14 @@ var score = 0;
 // run the renderer
 Render.run(render);
 
-var cuchara = Bodies.square(-300,-300,100,100,
+var cuchara = Bodies.rectangle(-300,-300,100,100,
       {
 
           render: {
             // fillStyle: 'transparent'
           }}
 );
-var cuchara2 = Bodies.square(-300,-300,100,100,
+var cuchara2 = Bodies.rectangle(-300,-300,100,100,
       {
 
           render: {

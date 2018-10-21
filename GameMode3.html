@@ -82,10 +82,10 @@
 						ctx.arc(dets[i][1], dets[i][0], dets[i][2]/2, 0, 2*Math.PI, false);
 
 						if(dets[i][1]>320){
-							Matter.Body.setPosition(cuchara, { x: 1.6*((dets[i][1])+150), y: 1.6*((dets[i][0])+10)});
+							Matter.Body.setPosition(cuchara, { x: 680, y: 1.6*((dets[i][0])+10)});
 						}
 						if(dets[i][1]<320){
-							Matter.Body.setPosition(cuchara2, { x: 1.6*((dets[i][1])+150), y: 1.6*((dets[i][0])+10)});
+							Matter.Body.setPosition(cuchara2, { x: 220, y: 1.6*((dets[i][0])+10)});
 						}
 						// Matter.Body.setPosition(cuchara2, { x: 1.6*((dets[i][1])+150), y: 1.6*((dets[i][0])+10)});
 

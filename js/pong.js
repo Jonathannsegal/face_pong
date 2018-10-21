@@ -85,14 +85,14 @@ var score = 0;
 // run the renderer
 Render.run(render);
 
-var cuchara = Bodies.rectangle(-300,-300,100,200,
+var cuchara = Bodies.rectangle(-300,-300,100,600,
       {
           isStatic : true,
           render: {
             // fillStyle: 'transparent'
           }}
 );
-var cuchara2 = Bodies.rectangle(-300,-300,100,200,
+var cuchara2 = Bodies.rectangle(-300,-300,100,300,
       {
           isStatic : true,
           render: {

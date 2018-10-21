@@ -152,7 +152,19 @@ a { color: inherit; }
   transform: translateY(-50%);
 }
 
-h1 {
+#score1 {
+  font-size: 5vw;
+  color: #fff;
+  font-weight: normal;
+  left: 0;
+  margin: 0;
+  position: absolute;
+  transform: rotate(-90deg) translate(calc(-90% - 2rem), 110%);
+  transform-origin: bottom left;
+}
+
+#score2 {
+  right: -3.5em;
   font-size: 5vw;
   color: #fff;
   font-weight: normal;

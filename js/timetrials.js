@@ -7,6 +7,7 @@ function clock() {
   // document.getElementById("time").innerHTML = seconds + "." + mili + "s, ";
   document.getElementById("time").innerHTML = "Time: " + timecount + " ";
 }
+
 var timerinterval = setInterval(clock, 10);
 
 Matter.use(

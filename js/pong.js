@@ -143,21 +143,21 @@ Events.on(engine, "collisionStart", function(event){
         }
 
         if(pair.id == collisionPlayer1){
-          Body.setVelocity(ball, {x:-ball.velocity.x, y:ball.velocity.y});
+          Body.setVelocity(ball, {x:-ball.velocity.x-1, y:ball.velocity.y+1});
         }
 
         if(pair.id == collisionPlayer2){
-          Body.setVelocity(ball, {x:-ball.velocity.x, y:ball.velocity.y});
+          Body.setVelocity(ball, {x:-ball.velocity.x-1, y:ball.velocity.y+1});
         }
     }
 });
 
 function checkOver(){
-  if(scorePlayer1 >= 5){
+  if(scorePlayer1 >= 1){
     localStorage.setItem("winner","Player 1 Wins");
     window.location.href = 'https://jonathansegal.info/hungryhungryhacker/GameOverScreen2.html';
   }
-  if (scorePlayer2 >= 5){
+  if (scorePlayer2 >= 1){
     localStorage.setItem("winner","Player 2 Wins");
     window.location.href = 'https://jonathansegal.info/hungryhungryhacker/GameOverScreen2.html';
   }

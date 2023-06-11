@@ -43,6 +43,6 @@ Won best domain name at HACKISU: http://letsuseyourhead.com/
 
 # [Devpost Page](https://devpost.com/software/hungryhungryhacker) 👨‍💻
 
-<img height="200px" src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/software_photos/000/698/496/datas/gallery.jpg"/>
+<img height="200px" src="https://drive.google.com/uc?id=1RDeIcMBzsB-lUMgfrfg0dC2cvijERQ5h"/>
 
 *The Team*

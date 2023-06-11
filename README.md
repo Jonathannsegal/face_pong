@@ -6,7 +6,7 @@
 
 Face pong was a project for [HackISU 2018](https://hackisu.stuorg.iastate.edu/). We wanted to make a simple game with a unique spin. The premise is that by tracking your movement you can interact with the game in a new way. The game we wanted to replicate was pong. To motion track, we used a the library [Pico js](https://tehnokv.com/posts/picojs-intro/), the library refreshes the tracking at 200 times per second to insure real time tracking. We used [Matter js](https://brm.io/matter-js/) for physics and wrote the gameplay and integration logic.
 
-![Gameplay](https://drive.google.com/uc?id=1Ruuh3SZlna0fmJVMx9OyhI6SElhsdRoJ)
+![Gameplay](https://drive.google.com/uc?id=1-1OSjG4wGXWLrcJIf-MfF2UaOpb4s9ZT)
 
 *I am writing this readme after the hackathon and made my sibilings play the game for this gif*
 

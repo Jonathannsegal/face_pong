@@ -1,5 +1,7 @@
 # Face Pong 🏓
 
+> **Archived:** HackISU 2018 project preserved for reference. The GitHub Pages demo remains available but depends on browser camera support.
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT) 
 [![HitCount](http://hits.dwyl.com/jonathannsegal/face_pong.svg)](http://hits.dwyl.com/jonathannsegal/face_pong)
 [![Play Now](https://img.shields.io/badge/Play-Now-green)](https://jonathannsegal.github.io/face_pong/)
